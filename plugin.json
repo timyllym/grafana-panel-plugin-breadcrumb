@@ -1,0 +1,21 @@
+{
+  "type": "panel",
+  "name": "Breadcrumb",
+  "id": "breadcrumb",
+
+  "info": {
+    "description": "Breadcrumb panel for Grafana",
+    "author": {
+      "name": "Timo Myllymäki",
+      "url": ""
+    },
+    "keywords": ["breadcrumb", "panel"],
+    "version": "1.0.0",
+    "updated": "2016-08-12"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

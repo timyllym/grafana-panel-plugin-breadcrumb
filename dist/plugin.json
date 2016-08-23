@@ -1,0 +1,21 @@
+{
+  "type": "panel",
+  "name": "Test",
+  "id": "grafana-test-panel",
+
+  "info": {
+    "description": "Test panel for grafana",
+    "author": {
+      "name": "Timo Myllymäki",
+      "url": ""
+    },
+    "keywords": ["test", "panel"],
+    "version": "1.0.0",
+    "updated": "2016-08-12"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

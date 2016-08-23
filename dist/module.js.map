@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/module.js"],"names":[],"mappings":";;;;;;;;AAAQ,c,cAAA,Q;;;2BAGN,Q","file":"module.js","sourcesContent":["import {TestCtrl} from './test_ctrl';\r\n\r\nexport {\r\n  TestCtrl as PanelCtrl\r\n};\r\n"]}

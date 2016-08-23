@@ -1,0 +1,28 @@
+.breadcrumb {
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+.breadcrumb > li {
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+.breadcrumb > .active {
+  color: #777;
+}
+
+panel-plugin-breadcrumb h2 {
+    margin-left: 10px;
+}
+
+panel-plugin-breadcrumb .panel-container, panel-plugin-breadcrumb .panel-container.panel-transparent {
+    background-color: #f5f5f5;
+}
+
+panel-plugin-breadcrumb .panel-header {
+    display: none;
+}

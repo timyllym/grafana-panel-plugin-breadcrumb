@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/module.js"],"names":[],"mappings":";;;;;;;;AAAQ,c,cAAA,Q;;;2BAGN,Q","file":"module.js","sourcesContent":["import {TestCtrl} from './test_ctrl';\r\n\r\nexport {\r\n  TestCtrl as PanelCtrl\r\n};\r\n"]}
+{"version":3,"sources":["../src/module.js"],"names":[],"mappings":";;;;;;;;AAAQ,oB,oBAAA,c;;;2BAGN,c","file":"module.js","sourcesContent":["import {BreadcrumbCtrl} from './breadcrumb_ctrl';\r\n\r\nexport {\r\n  BreadcrumbCtrl as PanelCtrl\r\n};\r\n"]}

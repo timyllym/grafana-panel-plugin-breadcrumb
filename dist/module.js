@@ -1,15 +1,15 @@
 'use strict';
 
-System.register(['./test_ctrl'], function (_export, _context) {
+System.register(['./breadcrumb_ctrl'], function (_export, _context) {
   "use strict";
 
-  var TestCtrl;
+  var BreadcrumbCtrl;
   return {
-    setters: [function (_test_ctrl) {
-      TestCtrl = _test_ctrl.TestCtrl;
+    setters: [function (_breadcrumb_ctrl) {
+      BreadcrumbCtrl = _breadcrumb_ctrl.BreadcrumbCtrl;
     }],
     execute: function () {
-      _export('PanelCtrl', TestCtrl);
+      _export('PanelCtrl', BreadcrumbCtrl);
     }
   };
 });

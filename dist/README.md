@@ -1,2 +1,2 @@
-# grafana-panel-plugin-test
-Small test panel for Grafana
+# grafana-panel-plugin-breadcrumb
+Breadcrumb panel for Grafana

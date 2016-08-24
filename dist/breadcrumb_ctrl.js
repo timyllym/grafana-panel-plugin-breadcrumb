@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression_store', 'app/core/config', './css/bootstrap.css!'], function (_export, _context) {
+System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression_store', 'app/core/config', './css/breadcrumb.css!'], function (_export, _context) {
     "use strict";
 
-    var _, PanelCtrl, impressions, config, _createClass, TestCtrl;
+    var _, PanelCtrl, impressions, config, _createClass, BreadcrumbCtrl;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -44,7 +44,7 @@ System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression
             impressions = _appFeaturesDashboardImpression_store.impressions;
         }, function (_appCoreConfig) {
             config = _appCoreConfig.default;
-        }, function (_cssBootstrapCss) {}],
+        }, function (_cssBreadcrumbCss) {}],
         execute: function () {
             _createClass = function () {
                 function defineProperties(target, props) {
@@ -64,13 +64,13 @@ System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression
                 };
             }();
 
-            _export('TestCtrl', TestCtrl = function (_PanelCtrl) {
-                _inherits(TestCtrl, _PanelCtrl);
+            _export('BreadcrumbCtrl', BreadcrumbCtrl = function (_PanelCtrl) {
+                _inherits(BreadcrumbCtrl, _PanelCtrl);
 
-                function TestCtrl($scope, $injector, backendSrv) {
-                    _classCallCheck(this, TestCtrl);
+                function BreadcrumbCtrl($scope, $injector, backendSrv) {
+                    _classCallCheck(this, BreadcrumbCtrl);
 
-                    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TestCtrl).call(this, $scope, $injector));
+                    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BreadcrumbCtrl).call(this, $scope, $injector));
 
                     _this.backendSrv = backendSrv;
                     _this.test = [];
@@ -83,7 +83,7 @@ System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression
                     return _this;
                 }
 
-                _createClass(TestCtrl, [{
+                _createClass(BreadcrumbCtrl, [{
                     key: 'updateText',
                     value: function updateText() {
                         var _this2 = this;
@@ -92,7 +92,10 @@ System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression
                         this.backendSrv.search({ dashboardIds: dashIds, limit: this.panel.limit }).then(function (result) {
                             var uri = "db/" + window.location.pathname.split("/").pop();
                             var obj = _.find(result, { uri: uri });
-                            _this2.test.push({ url: "dashboard/" + uri + "?hide_top_bar", name: obj.title });
+                            if (_.findIndex(_this2.test, { url: "dashboard/" + uri + "?hide_top_bar" }) < 0) {
+                                _this2.test.push({ url: "dashboard/" + uri + "?hide_top_bar", name: obj.title });
+                            }
+                            _this2.dashTitle = obj.title;
                             sessionStorage.setItem('dashlist', JSON.stringify(_this2.test));
                         });
                     }
@@ -106,13 +109,13 @@ System.register(['lodash', 'app/plugins/sdk', 'app/features/dashboard/impression
                     }
                 }]);
 
-                return TestCtrl;
+                return BreadcrumbCtrl;
             }(PanelCtrl));
 
-            _export('TestCtrl', TestCtrl);
+            _export('BreadcrumbCtrl', BreadcrumbCtrl);
 
-            TestCtrl.templateUrl = 'module.html';
+            BreadcrumbCtrl.templateUrl = 'module.html';
         }
     };
 });
-//# sourceMappingURL=test_ctrl.js.map
+//# sourceMappingURL=breadcrumb_ctrl.js.map

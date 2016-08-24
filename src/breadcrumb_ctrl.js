@@ -4,7 +4,7 @@ import {impressions} from 'app/features/dashboard/impression_store';
 import config from 'app/core/config';
 import './css/breadcrumb.css!';
 
-export class TestCtrl extends PanelCtrl {
+export class BreadcrumbCtrl extends PanelCtrl {
     constructor($scope, $injector, backendSrv) {
         super($scope, $injector);
         this.backendSrv = backendSrv;
@@ -39,4 +39,4 @@ export class TestCtrl extends PanelCtrl {
 
 }
 
-TestCtrl.templateUrl = 'module.html';
+BreadcrumbCtrl.templateUrl = 'module.html';

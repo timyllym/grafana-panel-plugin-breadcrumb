@@ -1,15 +1,15 @@
 {
   "type": "panel",
-  "name": "Test",
-  "id": "grafana-test-panel",
+  "name": "Breadcrumb",
+  "id": "breadcrumb",
 
   "info": {
-    "description": "Test panel for grafana",
+    "description": "Breadcrumb panel for Grafana",
     "author": {
       "name": "Timo Myllymäki",
       "url": ""
     },
-    "keywords": ["test", "panel"],
+    "keywords": ["breadcrumb", "panel"],
     "version": "1.0.0",
     "updated": "2016-08-12"
   },

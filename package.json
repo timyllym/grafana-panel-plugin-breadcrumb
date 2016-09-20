@@ -2,12 +2,12 @@
   "name": "grafana-panel-plugin-breadcrumb",
   "version": "1.0.0",
   "description": "Breadcrumb panel for Grafana",
-  "main": "src/module.js",
+  "main": "src/module.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Timo Myllymäki",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel": "~6.5.1",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.5.0",

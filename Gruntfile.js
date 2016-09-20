@@ -1,54 +1,92 @@
 module.exports = function(grunt) {
 
-  require('load-grunt-tasks')(grunt);
+    require('load-grunt-tasks')(grunt);
 
-  grunt.loadNpmTasks('grunt-execute');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-execute');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-contrib-pug');
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    clean: ["dist"],
+        clean: {
+            dist: ['dist'],
+            src: ['src/*.js', 'src/*.d.ts', 'src/*.map']
+        },
 
-    copy: {
-      src_to_dist: {
-        cwd: 'src',
-        expand: true,
-        src: ['**/*', '!**/*.js', '!**/*.scss'],
-        dest: 'dist'
-      },
-      pluginDef: {
-        expand: true,
-        src: [ 'plugin.json', 'README.md' ],
-        dest: 'dist',
-      }
-    },
+        copy: {
+            src_to_dist: {
+                cwd: 'src',
+                expand: true,
+                src: ['**/*', '!**/*.js', '!**/*.pug', '!**/*.scss'],
+                dest: 'dist'
+            },
+            pluginDef: {
+                expand: true,
+                src: [ 'plugin.json', 'README.md' ],
+                dest: 'dist',
+            }
+        },
 
-    watch: {
-      rebuild_all: {
-        files: ['src/**/*', 'plugin.json'],
-        tasks: ['default'],
-        options: {spawn: false}
-      },
-    },
+        watch: {
+            rebuild_all: {
+                files: ['src/**/*', 'plugin.json'],
+                tasks: ['default'],
+                options: {spawn: false}
+            },
+        },
 
-    babel: {
-      options: {
-        sourceMap: true,
-        presets:  ["es2015"],
-        plugins: ['transform-es2015-modules-systemjs', "transform-es2015-for-of"],
-      },
-      dist: {
-        files: [{
-          cwd: 'src',
-          expand: true,
-          src: ['*.js'],
-          dest: 'dist',
-          ext:'.js'
-        }]
-      },
-    },
+        pug: {
+            compile: {
+                options: {
+                    data: {
+                        debug: false
+                    }
+                },
+                files: {
+                    'dist/module.html': 'src/module.pug'
+                }
+            }
+        },
 
-  });
+        sass: {
+            dist: {
+                files: {
+                    'dist/breadcrumb.css': 'src/breadcrumb.scss'
+                }
+            }
+        },
 
-  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'babel']);
+        typescript: {
+            base: {
+                src: ['src/**/*.ts'],
+                dest: 'src',
+                options: {
+                    target: 'es6',
+                    sourceMap: true,
+                    declaration: true
+                }
+            }
+        },
+
+        babel: {
+            options: {
+                sourceMap: true,
+                presets:  ["es2015"],
+                plugins: ['transform-es2015-modules-systemjs', "transform-es2015-for-of"],
+            },
+            dist: {
+                files: [{
+                    cwd: 'src',
+                    expand: true,
+                    src: ['*.js'],
+                    dest: 'dist',
+                    ext:'.js'
+                }]
+            },
+        },
+
+    });
+
+    grunt.registerTask('default', ['clean:dist', 'copy:src_to_dist', 'copy:pluginDef', 'pug', 'sass', 'typescript', 'babel', 'clean:src']);
 };

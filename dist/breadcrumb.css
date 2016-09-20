@@ -1,0 +1,11 @@
+.breadcrumb {
+  padding: 4px 12px;
+  margin-bottom: 10px;
+  list-style: none; }
+  .breadcrumb > li {
+    display: inline-block; }
+  .breadcrumb > li > svg {
+    fill: #636363;
+    margin: 0 10px; }
+  .breadcrumb > li:last-child > svg {
+    display: none; }
